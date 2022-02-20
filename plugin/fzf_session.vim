@@ -20,7 +20,7 @@ function! s:session_handler(lines)
   if len(a:lines) == 0
     return
   elseif len(a:lines) == 2
-    execute fzf_session#create(a:lines[0])
+    execute fzf_session#save(a:lines[0])
     return
   endif
 
@@ -30,7 +30,7 @@ function! s:session_handler(lines)
   if cmd == 'delete'
     execute fzf_session#delete(a:lines[2])
   elseif cmd == 'save'
-    execute fzf_session#create(a:lines[2])
+    execute fzf_session#save(a:lines[2])
   else
     execute fzf_session#load(a:lines[2])
   endif
@@ -61,7 +61,8 @@ augroup fzf_session
   autocmd BufEnter,VimLeavePre * call fzf_session#persist()
 augroup END
 
-command! -nargs=1 Session call fzf_session#create(<f-args>)
+command! -nargs=1 SSave call fzf_session#save(<f-args>)
+command! -nargs=0 SSave call fzf_session#save("")
 command! -nargs=0 Sessions call fzf_session#session()
 command! -nargs=1 SLoad call fzf_session#load(<f-args>)
 command! -nargs=1 SDelete call fzf_session#delete(<f-args>)

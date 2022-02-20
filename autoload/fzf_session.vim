@@ -22,10 +22,14 @@ endfunction
 "}}}
 
 " Create a session {{{
-function! fzf_session#create(name)
-    echo 'Tracking session '.a:name
-    let g:this_fzf_session = s:session_file(a:name)
-    let g:this_fzf_session_name = a:name
+function! fzf_session#save(name)
+    if a:name == "" && exists('g:this_fzf_session')
+        echo "Saving ".g:this_fzf_session_name
+    else
+        echo 'Tracking session '.a:name
+        let g:this_fzf_session = s:session_file(a:name)
+        let g:this_fzf_session_name = a:name
+    endif
     call fzf_session#persist()
 endfunction
 "}}}
