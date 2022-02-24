@@ -33,10 +33,10 @@ function! fzf_session#session()
 
   let wrapped = fzf#wrap('sessions', {
   \ 'source':  fzf_session#list(),
-  \ 'options': '-m --prompt \> --print-query',
+  \ 'options': '-m --prompt \>',
+  \ 'sink': function('s:session_handler'),
   \ 'dir': dir
   \}, 0)
-  let wrapped['sink'] = function('s:session_handler')
   return fzf#run(wrapped)
 endfunction
 
