@@ -23,12 +23,17 @@ endfunction
 
 " Create a session {{{
 function! fzf_session#save(name)
-    if a:name == "" && exists('g:this_fzf_session')
+    if !empty(a:name) && exists('g:this_fzf_session')
         echo "Saving ".g:this_fzf_session_name
     else
-        echo 'Tracking session '.a:name
-        let g:this_fzf_session = s:session_file(a:name)
-        let g:this_fzf_session_name = a:name
+        if empty(a:name)
+            let l:name = fnamemodify(getcwd(), ":t")
+        else
+            let l:name = a:name
+        endif
+        echo 'Tracking session '.l:name
+        let g:this_fzf_session = s:session_file(l:name)
+        let g:this_fzf_session_name = l:name
     endif
     call fzf_session#persist()
 endfunction
