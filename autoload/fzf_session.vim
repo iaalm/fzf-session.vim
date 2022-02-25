@@ -22,7 +22,7 @@ endfunction
 "}}}
 
 " Create a session {{{
-function! fzf_session#save(name)
+function! fzf_session#save(name="")
     if !empty(a:name) && exists('g:this_fzf_session')
         echo "Saving ".g:this_fzf_session_name
     else

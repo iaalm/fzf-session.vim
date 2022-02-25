@@ -45,8 +45,7 @@ augroup fzf_session
   autocmd BufEnter,VimLeavePre * call fzf_session#persist()
 augroup END
 
-command! -nargs=1 SSave call fzf_session#save(<f-args>)
-command! -nargs=0 SSave call fzf_session#save("")
+command! -nargs=? SSave call fzf_session#save(<f-args>)
 command! -nargs=0 Sessions call fzf_session#session()
 command! -nargs=1 SLoad call fzf_session#load(<f-args>)
 command! -nargs=1 SDelete call fzf_session#delete(<f-args>)
