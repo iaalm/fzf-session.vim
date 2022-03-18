@@ -1,6 +1,6 @@
 " fzf-session.vim - fzf extension to manage vim sessions.
 " Inspired by ctrlp_session by Pascal Lalancette
-" Maintainer:       Dominick Ng
+" Maintainer:       iaalm
 " Version:          1.0
 
 " Location of session files
