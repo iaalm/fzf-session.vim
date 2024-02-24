@@ -1,4 +1,4 @@
-*fzf_session.txt*	 For Vim version 7.4	 Last change: 2015 February 23rd
+*fzf_session.txt*	 For Vim version 9.1	 Last change: 2024 February 24th
 
 fzf extension to manage Vim sessions.
 
@@ -17,7 +17,7 @@ CONTENTS                                        *fzf_session-contents*
     7. License......................................|fzf_session-license||
 
 ==============================================================================
-INTRODUCTION                                    *fzf_session*
+INTRODUCTION                                    *fzf_session-intro*
 
 Integrate session management into fzf.vim. Create, save, load, search, and
 delete sessions using fzf. Store all sessions in one configurable location.
