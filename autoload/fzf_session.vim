@@ -86,9 +86,11 @@ endfunction
 
 " Detach to current session. {{{
 function! fzf_session#detach()
+  if exists('g:this_fzf_session')
     echomsg "Detaching to current session"
     unlet g:this_fzf_session
     unlet g:this_fzf_session_name
+  endif
 endfunction
 "}}}
 
