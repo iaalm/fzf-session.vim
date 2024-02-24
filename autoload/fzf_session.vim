@@ -84,6 +84,14 @@ function! fzf_session#quit()
 endfunction
 "}}}
 
+" Detach to current session. {{{
+function! fzf_session#detach()
+    echomsg "Detaching to current session"
+    unlet g:this_fzf_session
+    unlet g:this_fzf_session_name
+endfunction
+"}}}
+
 " List all persisted sessions {{{
 function! fzf_session#list()
     let l:wildignore=&wildignore

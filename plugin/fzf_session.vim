@@ -43,6 +43,7 @@ endfunction
 augroup fzf_session
   autocmd!
   autocmd BufEnter,VimLeavePre * call fzf_session#persist()
+  autocmd DirChangedPre global call fzf_session#detach()
 augroup END
 
 command! -nargs=? SSave call fzf_session#save(<f-args>)
