@@ -13,6 +13,16 @@ function! fzf_session#path()
     return g:fzf_session_path
 endfunction
 "}}}
+"
+
+" Create session location dir {{{
+function! fzf_session#ensurepath()
+  let raw_dir = fzf_session#path()
+  if !isdirectory(raw_dir)
+    call mkdir(raw_dir, "p", 0700)
+  endif
+endfunction
+" }}}
 
 " Return a session file path from its name {{{
 function! s:session_file(name)
@@ -23,6 +33,7 @@ endfunction
 
 " Create a session {{{
 function! fzf_session#save(name="")
+    call fzf_session#ensurepath()
     if !empty(a:name) && exists('g:this_fzf_session')
         echo "Saving ".g:this_fzf_session_name
     else
